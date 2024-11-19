@@ -1491,6 +1491,5 @@ class StreamingDataset(Array, IterableDataset):
             if item is not None:
                 yield item
             
-        yield from map(self.__getitem__, self._each_sample_id(it))
         wait([prepare_future, ready_future], return_when='FIRST_EXCEPTION')
         it.exit()
